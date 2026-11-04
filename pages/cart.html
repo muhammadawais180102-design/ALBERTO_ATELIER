@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#08090b">
+
+<meta name="description" content="Review your selected Alberto Atelier luxury timepieces.">
+
+<title>Shopping Cart | ALBERTO ATELIER</title>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="../css/cart.css">
+
+<link rel="stylesheet" href="../css/cart-motion.css">
+
+<link rel="stylesheet" href="../css/atelier-polish.css">
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/theme.css">
+<link rel="stylesheet" href="../css/account-ui.css">
+<link rel="stylesheet" href="../css/order-checkout.css">
+</head>
+
+
+
+<body>
+
+
+
+<div class="cinematic-background" aria-hidden="true">
+
+  <div class="ambient one"></div>
+
+  <div class="ambient two"></div>
+
+  <div class="particles" id="particles"></div>
+
+</div>
+
+
+
+<!-- NAVBAR -->
+
+<header class="site-header" id="siteHeader">
+
+  <div class="container-custom nav-inner">
+
+
+
+    <a class="brand" href="../index.html">
+
+      <span class="brand-name">ALBERTO ATELIER</span>
+
+      <span class="brand-caption">THE ART OF TIME</span>
+
+    </a>
+
+
+
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+
+      <a href="../index.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="product.html">Collection</a>
+
+      <a href="services.html">Services</a>
+
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+
+
+    <div class="nav-actions">
+      <button type="button" class="aa-theme-switch" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode">
+          <span class="aa-theme-switch__track" aria-hidden="true">
+            <span class="aa-theme-switch__label">DAY</span>
+            <span class="aa-theme-switch__thumb"></span>
+          </span>
+        </button>
+
+
+      <a href="login.html" class="nav-icon" data-aa-account-link aria-label="Account">
+
+        <i class="bi bi-person"></i>
+
+      </a>
+
+
+
+      <a href="cart.html" class="nav-icon" aria-label="Shopping cart">
+
+        <i class="bi bi-bag"></i>
+
+        <span class="cart-count" id="cartCount">0</span>
+
+      </a>
+
+
+
+      <button class="menu-toggle" id="menuToggle" type="button"
+
+              aria-label="Open menu" aria-controls="navLinks"
+
+              aria-expanded="false">
+
+        <i class="bi bi-list"></i>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<main>
+
+
+
+<!-- HERO -->
+
+<section class="page-hero">
+
+  <div class="hero-ring" aria-hidden="true"></div>
+
+
+
+  <div class="container-custom hero-inner">
+
+    <span class="eyebrow reveal">Your Private Selection</span>
+
+
+
+    <h1 class="reveal">
+
+      Shopping <em>Bag.</em>
+
+    </h1>
+
+
+
+    <p class="reveal reveal-delay-1">
+
+      Your carefully selected timepieces,
+
+      presented with the elegance of Alberto Atelier.
+
+    </p>
+
+
+
+    <div class="breadcrumbs reveal">
+
+      <a href="../index.html">Home</a>
+
+      <span>/</span>
+
+      Shopping Cart
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- SHOPPING CART -->
+
+<section class="cart-section">
+
+  <div class="container-custom">
+
+
+
+    <div class="cart-layout" id="cartLayout">
+
+
+
+      <!-- PRODUCTS PANEL -->
+
+      <div class="cart-panel reveal">
+
+        <div class="panel-head">
+
+          <h2>Your Selection</h2>
+
+
+
+          <button class="clear-btn" id="clearCart" type="button">
+
+            <i class="bi bi-trash3"></i> Clear Cart
+
+          </button>
+
+        </div>
+
+
+
+        <div class="cart-items" id="cartItems"></div>
+
+      </div>
+
+
+
+      <!-- SUMMARY PANEL -->
+
+      <aside class="summary-panel reveal reveal-delay-1">
+
+
+
+        <h2>Order Summary</h2>
+
+
+
+        <div class="summary-row">
+
+          <span>Selected Items</span>
+
+          <strong id="summaryQuantity">0</strong>
+
+        </div>
+
+
+
+        <div class="summary-row">
+
+          <span>Subtotal</span>
+
+          <strong id="summarySubtotal">PKR 0</strong>
+
+        </div>
+
+
+
+        <div class="summary-row">
+
+          <span>Delivery</span>
+
+          <strong>Not calculated</strong>
+
+        </div>
+
+
+
+        <div class="summary-divider"></div>
+
+
+
+        <div class="summary-row total">
+
+          <span>Cart Subtotal</span>
+
+          <strong id="summaryTotal">PKR 0</strong>
+
+        </div>
+
+
+
+        <button class="luxury-btn gold" id="checkoutBtn" type="button">
+
+          Request This Order
+
+          <i class="bi bi-arrow-up-right"></i>
+
+        </button>
+
+
+
+        <a href="product.html" class="luxury-btn outline">
+
+          Continue Shopping
+
+          <i class="bi bi-arrow-left"></i>
+
+        </a>
+
+
+
+        <p class="checkout-message" id="checkoutMessage"
+
+           role="status" aria-live="polite"></p>
+
+
+
+        <p class="summary-note">
+
+          Orders are stored in this browser for the front-end demonstration.
+
+          To send your request to the store, use the email option after saving.
+
+          Delivery fees and payments are not processed here.
+
+        </p>
+
+
+
+      </aside>
+
+
+
+    </div>
+
+    <section class="aa-orders" id="aaSavedOrders" aria-labelledby="aaOrdersTitle">
+      <div class="aa-orders__heading">
+        <div>
+          <span class="aa-order-eyebrow">ATELIER SERVICE</span>
+          <h2 id="aaOrdersTitle">Your Saved <em>Requests.</em></h2>
+        </div>
+        <button type="button" class="aa-orders__clear" id="aaClearOrders" hidden>Clear Demo Records</button>
+      </div>
+      <p class="aa-orders__description">Your order requests are stored only in this browser until you send them to the store.</p>
+      <div class="aa-orders__list" id="aaOrderHistory"></div>
+    </section>
+
+    <section class="bag-recommendations" aria-label="Recommended watches">
+      <span class="eyebrow">Curated For You</span>
+      <h2>Complete Your <em>Collection.</em></h2>
+      <div id="bagRecommendationGrid" class="bag-rec-grid"></div>
+      <p id="bagRecommendationStatus" class="bag-rec-status" role="status" aria-live="polite"></p>
+    </section>
+
+  </div>
+
+</section>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+  <div class="container-custom">
+
+
+
+    <div class="footer-grid">
+
+
+
+      <div>
+
+        <a href="../index.html" class="brand">
+
+          <span class="brand-name">ALBERTO ATELIER</span>
+
+          <span class="brand-caption">THE ART OF TIME</span>
+
+        </a>
+
+
+
+        <p class="footer-description">
+
+          An expression of timeless elegance,
+
+          exceptional design and extraordinary
+
+          sophistication.
+
+        </p>
+
+
+
+        <div class="footer-socials">
+
+          <a href="https://www.instagram.com/" target="_blank"
+
+             rel="noopener noreferrer" aria-label="Instagram">
+
+            <i class="bi bi-instagram"></i>
+
+          </a>
+
+          <a href="https://www.facebook.com/" target="_blank"
+
+             rel="noopener noreferrer" aria-label="Facebook">
+
+            <i class="bi bi-facebook"></i>
+
+          </a>
+
+          <a href="https://www.youtube.com/" target="_blank"
+
+             rel="noopener noreferrer" aria-label="YouTube">
+
+            <i class="bi bi-youtube"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>Explore</h4>
+
+        <div class="footer-links">
+
+          <a href="../index.html">Home</a>
+
+          <a href="about.html">Our Story</a>
+
+          <a href="product.html">Collection</a>
+
+          <a href="services.html">Services</a>
+
+          <a href="contact.html">Contact</a>
+
+        </div>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>Your Account</h4>
+
+        <div class="footer-links">
+
+          <a href="login.html">Sign In</a>
+
+          <a href="login.html#register">Create Account</a>
+
+          <a href="cart.html">Shopping Cart</a>
+
+          <a href="product.html">Explore Watches</a>
+
+        </div>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>Contact</h4>
+
+        <div class="footer-contact">
+
+          <p>
+
+            <i class="bi bi-geo-alt"></i>
+
+            Karachi, Sindh, Pakistan
+
+          </p>
+
+          <a href="tel:+923718034461">
+
+            <i class="bi bi-telephone"></i>
+
+            03718034461
+
+          </a>
+
+          <a href="mailto:muhammadawais180102@gmail.com">
+
+            <i class="bi bi-envelope"></i>
+
+            muhammadawais180102@gmail.com
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+      <span>
+
+        © <span id="currentYear"></span>
+
+        ALBERTO ATELIER. ALL RIGHTS RESERVED.
+
+      </span>
+
+      <span>TIMELESS BY DESIGN</span>
+
+    </div>
+
+
+
+  </div>
+
+</footer>
+
+
+
+<!-- ALBERTO ATELIER — ORDER ENQUIRY (FRONT-END DEMONSTRATION) -->
+<div class="aa-order-backdrop" id="aaOrderDialog" hidden>
+  <div class="aa-order-dialog" role="dialog" aria-modal="true" aria-labelledby="aaOrderTitle" aria-describedby="aaOrderDesc">
+    <button type="button" class="aa-order-dialog__close" id="aaOrderClose" aria-label="Close order form">&times;</button>
+
+    <section id="aaOrderFormView">
+      <div class="aa-order-dialog__header">
+        <span class="aa-order-eyebrow">ALBERTO ATELIER · PRIVATE ORDER</span>
+        <h2 id="aaOrderTitle">Arrange Your <em>Timepiece.</em></h2>
+        <p id="aaOrderDesc">Your selected watches, your details. Review the enquiry before saving it.</p>
+      </div>
+      <div class="aa-order-dialog__content">
+        <form id="aaOrderForm">
+          <div class="aa-order-form-grid">
+            <label class="aa-order-field">Full name <span aria-hidden="true">*</span>
+              <input type="text" name="name" id="aaOrderName" autocomplete="name" minlength="2" maxlength="90" required placeholder="Your full name">
+            </label>
+            <label class="aa-order-field">Phone number <span aria-hidden="true">*</span>
+              <input type="tel" name="phone" id="aaOrderPhone" autocomplete="tel" inputmode="tel" minlength="8" maxlength="24" required placeholder="03XX XXXXXXX">
+            </label>
+            <label class="aa-order-field aa-order-field--wide">Email address <span aria-hidden="true">*</span>
+              <input type="email" name="email" id="aaOrderEmail" autocomplete="email" maxlength="120" required placeholder="you@example.com">
+            </label>
+            <label class="aa-order-field aa-order-field--wide">Delivery address <span aria-hidden="true">*</span>
+              <textarea name="address" id="aaOrderAddress" autocomplete="street-address" maxlength="300" minlength="8" required rows="2" placeholder="House / apartment, street and area"></textarea>
+            </label>
+            <label class="aa-order-field">City <span aria-hidden="true">*</span>
+              <input type="text" name="city" id="aaOrderCity" autocomplete="address-level2" maxlength="80" minlength="2" required placeholder="City">
+            </label>
+            <label class="aa-order-field">Postal code <small>(optional)</small>
+              <input type="text" name="postal" id="aaOrderPostal" autocomplete="postal-code" maxlength="20" placeholder="Postal code">
+            </label>
+            <label class="aa-order-field aa-order-field--wide">Special instructions <small>(optional)</small>
+              <textarea name="note" id="aaOrderNote" rows="2" maxlength="300" placeholder="Any delivery or watch preferences"></textarea>
+            </label>
+          </div>
+          <div class="aa-order-summary">
+            <div class="aa-order-summary__heading">ORDER SUMMARY <span id="aaOrderItemCount">0 ITEMS</span></div>
+            <div id="aaOrderSummaryItems" class="aa-order-summary__items"></div>
+            <div class="aa-order-summary__total"><span>Subtotal (delivery excluded)</span><strong id="aaOrderTotal">PKR 0</strong></div>
+          </div>
+          <p class="aa-order-hint">Front-end E-Project demo: saving does not send a request to Alberto Atelier or charge any payment. You can open a prefilled email after saving.</p>
+          <p class="aa-order-error" id="aaOrderError" aria-live="polite"></p>
+          <button type="submit" class="aa-order-primary" id="aaOrderSubmit">Save Order Request <span aria-hidden="true">↗</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section id="aaOrderSuccessView" class="aa-order-success" hidden aria-labelledby="aaSuccessTitle">
+      <span class="aa-order-eyebrow">REQUEST RECORDED</span>
+      <div class="aa-order-success__seal" aria-hidden="true">✓</div>
+      <h2 id="aaSuccessTitle">Request Saved <em>Successfully.</em></h2>
+      <p class="aa-order-success__message">Your order request has been saved in this browser.</p>
+      <div class="aa-order-success__reference"><span>YOUR REFERENCE</span><strong id="aaSuccessReference"></strong></div>
+      <p class="aa-order-success__info" id="aaSuccessInfo"></p>
+      <p class="aa-order-hint">To send this request to the store, choose <strong>Send by Email</strong> and press Send in your email app. A saved request is not a confirmed order.</p>
+      <div class="aa-order-success__actions">
+        <button type="button" class="aa-order-primary" id="aaOrderSend">Send by Email ↗</button>
+        <button type="button" class="aa-order-secondary" id="aaOrderCopy">Copy Details</button>
+        <button type="button" class="aa-order-tertiary" id="aaOrderDone">Close</button>
+      </div>
+      <p id="aaOrderSuccessStatus" class="aa-order-success__status" role="status" aria-live="polite"></p>
+    </section>
+  </div>
+</div>
+
+<div class="cart-toast" id="cartToast" role="status" aria-live="polite"></div>
+
+
+
+<button class="back-top" id="backTop" type="button"
+
+        aria-label="Back to top">
+
+  <i class="bi bi-arrow-up"></i>
+
+</button>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="../js/product-catalog.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/order-checkout.js"></script>
+
+
+
+<script src="../js/cart-motion.js" defer></script>
+<script src="../js/network-guard.js" defer></script>
+<script src="../js/account-store.js" defer></script>
+<script src="../js/account-nav.js" defer></script>
+</body>
+
+</html>

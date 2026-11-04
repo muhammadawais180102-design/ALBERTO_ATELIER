@@ -1,0 +1,225 @@
+/* ALBERTO ATELIER | DAY / NIGHT
+   Existing dark design is untouched. Light values apply only when requested. */
+
+/* Premium slider — first within navbar actions, next to account/cart icons */
+.aa-theme-switch,
+.aa-theme-switch * { box-sizing: border-box; }
+.aa-theme-switch {
+  --aa-toggle-border: rgba(233,204,146,.52);
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 40px;
+  padding: 3px;
+  border: 1px solid var(--aa-toggle-border);
+  border-radius: 999px;
+  background: linear-gradient(145deg,#3e3327,#131416 72%);
+  box-shadow: 0 5px 22px rgba(0,0,0,.23), inset 0 1px 0 rgba(255,241,210,.17);
+  color: #f8e3b7;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  transition: background .42s ease, border-color .42s ease, box-shadow .42s ease, transform .3s ease;
+  z-index: 1;
+}
+.aa-theme-switch:hover { transform:translateY(-1px);border-color:#f7d99e;box-shadow: 0 7px 24px rgba(0,0,0,.25),0 0 19px rgba(211,167,91,.20); }
+.aa-theme-switch:active { transform:scale(.96); }
+.aa-theme-switch:focus-visible {outline:2px solid #d6aa63; outline-offset:4px;}
+.aa-theme-switch__track { position:relative;display:block;width:100%;height:100%;border-radius:999px; }
+.aa-theme-switch__label {
+  position:absolute;top:50%;right:8px;transform:translateY(-50%);
+  font:700 8px/1 "Inter",system-ui,sans-serif;letter-spacing:.11em;color:#f2d8a0;
+  user-select:none;white-space:nowrap;pointer-events:none;
+}
+.aa-theme-switch__thumb {
+  display:grid;place-items:center;position:absolute;top:1px;left:1px;
+  width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(140deg,#f8e1a7,#b88742);color:#34240f;
+  box-shadow:0 2px 8px rgba(0,0,0,.38),inset 0 1px 1px rgba(255,255,255,.45);
+  transition:transform .42s cubic-bezier(.2,.75,.2,1),background .42s ease;
+  pointer-events:none;
+}
+.aa-theme-switch__thumb::before {content:"☾";font:700 21px/1 Georgia,serif;position:relative;top:-1px;}
+html[data-aa-theme="light"] .aa-theme-switch {
+  background:linear-gradient(135deg,#fffdf8,#e7d7b9);
+  border-color:rgba(160,117,62,.46);box-shadow:0 5px 16px rgba(88,65,40,.12),inset 0 1px 0 #fff;
+}
+html[data-aa-theme="light"] .aa-theme-switch__label {left:8px;right:auto;color:#815627;}
+html[data-aa-theme="light"] .aa-theme-switch__thumb {transform:translateX(40px);background:linear-gradient(140deg,#c28c45,#8d5e2e);color:#fff6df;}
+html[data-aa-theme="light"] .aa-theme-switch__thumb::before {content:"☀";font-size:19px;top:0;}
+
+/* Correct placement on independent page styles. No change to old navbar logic. */
+.nav-actions:has(> .aa-theme-switch) {align-items:center;}
+.aa-theme-switch--auth {position:fixed;top:24px;right:28px;z-index:200;}
+.aa-theme-switch--error {position:fixed;top:18px;right:20px;z-index:50;}
+@media (max-width:1100px) {
+  .nav-actions:has(> .aa-theme-switch) {gap:12px;}
+}
+@media (max-width:650px) {
+  .aa-theme-switch {width:68px;height:36px;padding:2px;}
+  .aa-theme-switch__thumb {width:28px;height:28px;top:1px;left:1px;}
+  html[data-aa-theme="light"] .aa-theme-switch__thumb {transform:translateX(32px);}
+  .aa-theme-switch__label {font-size:7px;right:6px;}
+  html[data-aa-theme="light"] .aa-theme-switch__label {left:5px;}
+  .aa-theme-switch--auth {top:14px;right:12px;}
+  .aa-theme-switch--error {top:12px;right:10px;}
+  .nav-actions:has(> .aa-theme-switch) {gap:9px;}
+}
+@media (max-width:390px) {
+  .aa-theme-switch {width:56px;height:32px;}
+  .aa-theme-switch__thumb {width:24px;height:24px;}
+  html[data-aa-theme="light"] .aa-theme-switch__thumb {transform:translateX(26px);}
+  .aa-theme-switch__label {font-size:6px;right:4px;letter-spacing:0;}
+  html[data-aa-theme="light"] .aa-theme-switch__label {left:4px;}
+  .nav-actions:has(> .aa-theme-switch) {gap:7px;}
+}
+
+/* Warm ivory replaces the night canvas, without altering markup, routes or animations. */
+html[data-aa-theme="light"] {
+  --black:#f6f1e7;
+  --dark:#eee6da;
+  --surface:#fffaf3;
+  --panel:#fffaf3;
+  --ivory:#29241f;
+  --muted:#625b51;
+  --gold:#9b7139;
+  --gold-light:#785321;
+  --line:rgba(134,100,56,.25);
+  --aa-hairline:rgba(134,100,56,.23);
+  --aa-hairline-hover:rgba(134,100,56,.50);
+  --aa-frost:rgba(255,250,242,.94);
+  --aa-shadow:0 18px 40px rgba(60,42,25,.12);
+  color-scheme:light;
+}
+html[data-aa-theme="light"] body:not(.alberto) {background:#f6f1e7;color:#29241f;}
+html[data-aa-theme="light"] .cinematic-background,
+html[data-aa-theme="light"] .cinematic-bg {background:#f6f1e7;}
+html[data-aa-theme="light"] .cinematic-background .ambient,
+html[data-aa-theme="light"] .cinematic-bg .ambient-light {opacity:.33;}
+html[data-aa-theme="light"] .cinematic-bg .watch-image {opacity:.11;}
+html[data-aa-theme="light"] .cinematic-bg .watch-image.second {animation:none;opacity:.05;}
+html[data-aa-theme="light"] .cinematic-bg .vignette {background:radial-gradient(ellipse at center,rgba(246,241,231,.3),rgba(246,241,231,.83));}
+html[data-aa-theme="light"] :is(.particle-layer,.particles) {opacity:.28;}
+
+/* Navbar: light editorial finish that remains legible over photographic headers. */
+html[data-aa-theme="light"] :is(.header,.site-header) {
+  background:rgba(251,247,240,.96);
+  border-bottom:1px solid rgba(133,99,54,.22);
+  box-shadow:0 9px 35px rgba(65,46,25,.10);
+  backdrop-filter:blur(20px);
+}
+html[data-aa-theme="light"] :is(.header,.site-header).scrolled {background:rgba(251,247,240,.97);box-shadow:0 12px 32px rgba(65,46,25,.14);}
+html[data-aa-theme="light"] :is(.nav-menu,.nav-links) a {color:#514333;}
+html[data-aa-theme="light"] :is(.nav-menu,.nav-links) a:is(:hover,.active) {color:#8b612f;}
+html[data-aa-theme="light"] :is(.nav-actions > a,.nav-icon,.menu-toggle,.mobile-menu) {color:#865e2b;}
+html[data-aa-theme="light"] :is(.logo strong,.brand-name,.brand-heading a) {color:#71502a;text-shadow:none;}
+html[data-aa-theme="light"] :is(.logo small,.brand-caption) {color:#987344;}
+
+/* Cinematic hero images retain a shaded treatment for accessible bright writing. */
+html[data-aa-theme="light"] :is(.hero,.page-hero) {background:#26201b;color:#fff7e8;}
+html[data-aa-theme="light"] :is(.hero,.page-hero) :is(h1,h2,p,.eyebrow) {color:#f8efe0;}
+html[data-aa-theme="light"] :is(.hero,.page-hero) :is(h1 em,.eyebrow) {color:#f9d494;}
+html[data-aa-theme="light"] .hero-bg {filter:brightness(1.24);}
+html[data-aa-theme="light"] .page-hero::before {filter:brightness(1.2);}
+html[data-aa-theme="light"] :is(.hero,.page-hero) .aa-theme-switch {color:#79562c;}
+
+/* Main pages: readable sections, cards and pricing while retaining luxury imagery. */
+html[data-aa-theme="light"] :is(.product-card,.service-card,.collection-card,.cart-panel,.summary-panel,.bag-recommendations,.bag-rec-item,
+  .contact-card,.contact-info-card,.feature-card,.info-card,.value-card,.timeline-card,.service-detail,.why-card,.process-card,
+  .faq-item,.cart-item,.contact-form,.form-panel,.experience-card,.stat-card) {
+  background-color:#fffaf3;
+  border-color:rgba(144,111,69,.23);
+  box-shadow:0 10px 30px rgba(75,53,27,.07);
+  color:#29241f;
+}
+html[data-aa-theme="light"] :is(.product-card,.service-card,.bag-rec-item):hover {box-shadow:0 22px 40px rgba(75,53,27,.15);}
+html[data-aa-theme="light"] .product-image-wrap {background:radial-gradient(circle at center,#eee2ce, #f9f1e7 72%);}
+html[data-aa-theme="light"] :is(.product-info,.product-info h3,.product-info p,.product-name,.product-price,.service-card h3,.service-card p) {color:#312920;}
+html[data-aa-theme="light"] :is(.filter-bar,.sort-select,.filter-btn,.clear-btn,.quantity-btn) {
+  color:#59452e;border-color:rgba(132,99,58,.29);
+}
+html[data-aa-theme="light"] :is(.sort-select,.filter-btn,.quantity-btn) {background:#fffaf3;}
+html[data-aa-theme="light"] :is(.filter-btn.active,.filter-btn:hover,.quantity-btn:hover) {background:#9b7139;color:#fff9ee;}
+html[data-aa-theme="light"] .sort-select option {background:#fffaf3;color:#342a20;}
+html[data-aa-theme="light"] :is(.cart-panel,.summary-panel,.cart-item) {background:rgba(255,250,243,.97);}
+html[data-aa-theme="light"] :is(.panel-head h2,.summary-panel h2,.cart-title,.cart-unit-price,.cart-line-total) {color:#402f1f;}
+html[data-aa-theme="light"] :is(.bag-rec-item,.bag-recommendations) {background:#fffaf3;}
+html[data-aa-theme="light"] :is(input:not([type="checkbox"]),textarea,select) {background:#fffaf3;color:#2b261f;border-color:rgba(139,105,59,.33);}
+html[data-aa-theme="light"] :is(input,textarea)::placeholder {color:#80766b;opacity:1;}
+
+/* Footer intentionally lighter than original midnight blocks. */
+html[data-aa-theme="light"] :is(.footer,.site-footer) {background:#eae0d0;color:#453a2e;border-top:1px solid rgba(126,92,51,.24);}
+html[data-aa-theme="light"] :is(.footer,.site-footer) :is(h3,h4,p,a,.footer-bottom,.footer-description,.footer-links a,.footer-contact p) {color:#4d4031;}
+html[data-aa-theme="light"] :is(.footer,.site-footer) a:hover {color:#92632d;}
+
+/* Account page: same sliding form, new colors and contrast. */
+html[data-aa-theme="light"] .auth-container {
+  background:#fffaf4;border-color:rgba(147,108,55,.30);
+  box-shadow:0 30px 75px rgba(72,47,20,.17);
+}
+html[data-aa-theme="light"] .form-box {background:radial-gradient(circle at 80% 10%,rgba(205,166,103,.11),transparent 50%),#fffaf4;}
+html[data-aa-theme="light"] .form-box :is(h1,.form-subtitle) {color:#665034;}
+html[data-aa-theme="light"] .form-box :is(input,.input-box input) {background:#fffcf7;color:#302820;border-color:rgba(152,115,68,.34);}
+html[data-aa-theme="light"] .form-box :is(input,.input-box input)::placeholder {color:#81766c;}
+html[data-aa-theme="light"] .form-box :is(a,p,.forgot-link a,.social-label) {color:#655748;}
+html[data-aa-theme="light"] .form-box .primary-btn {color:#fff7e8;background:linear-gradient(120deg,#aa824e,#805728);}
+html[data-aa-theme="light"] .brand-heading span {color:#856539;}
+
+/* Error and offline cartoon SVG: preserve original motion in both color palettes. */
+html[data-aa-theme="light"] body.alberto {
+  --background:#f6f1e7;--text:#342a20;--muted:#766a5b;--button:#9b7139;
+  --button-text:#fffaf3;--stone:#d8cec0;--grass:#ae995f;
+  --ground:#a69681;--accent:#9b7139;
+  background:radial-gradient(ellipse at 50% 40%,#fff9f0,#f6f1e7 75%);
+  color:#342a20;
+}
+html[data-aa-theme="light"] body.alberto .cable {stroke:#725d42;}
+@media(prefers-reduced-motion:reduce){.aa-theme-switch,.aa-theme-switch *{transition:none!important}}
+
+/* Sections which were originally solid midnight must become warm ivory too. */
+html[data-aa-theme="light"] :is(.collections,.heritage,.craft-section,.story,.collection-section,.cart-section,
+  .contact-info-section,.contact-section,.services-section,.process-section,.experience,.testimonials,
+  .about-section,.features-section,.editorial-section) {
+  background:#f6f1e7;
+  color:#29241f;
+}
+html[data-aa-theme="light"] :is(.filter-bar,.watch-card,.philosophy-card,.process-card,.value-card) {
+  background:#fffaf3;
+  color:#33281e;
+  border-color:rgba(144,111,69,.25);
+}
+html[data-aa-theme="light"] :is(.watch-card,.philosophy-card,.process-card) :is(h2,h3,p,span) {color:#493e32;}
+html[data-aa-theme="light"] :is(.section-title,.section-heading,.section-header,.story,.heritage,.craft-section) :is(h2,h3,p) {color:#3c3024;}
+html[data-aa-theme="light"] :is(.section-title,.section-heading,.section-header) .eyebrow {color:#916b37;}
+/* Watch photo cards retain white editorial overlays on the photograph. */
+html[data-aa-theme="light"] .collection-card :is(h3,p,span,a) {color:#f9f0df;}
+html[data-aa-theme="light"] .collection-card :is(.eyebrow,.collection-info span) {color:#f7d49a;}
+/* Bootstrap helpers used on original pages must not make content illegible. */
+html[data-aa-theme="light"] :is(.text-muted,.text-secondary) {color:#6a5a47!important;}
+
+@media(max-width:390px) {
+  /* Leave room for original icons and menu without moving the toggle elsewhere. */
+  :is(.nav,.nav-inner) {gap:6px;}
+  .nav-actions:has(> .aa-theme-switch) {gap:6px;}
+  :is(.logo strong,.brand-name) {font-size:clamp(16px,5.7vw,22px);letter-spacing:.05em;}
+  :is(.logo small,.brand-caption) {font-size:7px;letter-spacing:.14em;}
+}
+
+/* Header squeeze guard: keep brand, account, cart, switch and hamburger visible. */
+@media (max-width:600px) {
+  .nav,.nav-inner {gap:7px;}
+  .nav-actions:has(> .aa-theme-switch) {gap:7px;}
+  .nav-actions > a {display:inline-flex;align-items:center;justify-content:center;min-width:18px;flex:0 0 auto;}
+  :is(.logo strong,.brand-name) {font-size:clamp(14px,4.6vw,19px);letter-spacing:.035em;}
+  :is(.logo small,.brand-caption) {font-size:6px;letter-spacing:.1em;}
+  :is(.menu-toggle,.mobile-menu) {font-size:24px;flex:0 0 auto;}
+}
+@media(max-width:340px) {
+  .nav,.nav-inner {gap:5px;}
+  .nav-actions:has(> .aa-theme-switch) {gap:5px;}
+  .aa-theme-switch:not(.aa-theme-switch--auth):not(.aa-theme-switch--error) {width:50px;}
+  html[data-aa-theme="light"] .aa-theme-switch__thumb {transform:translateX(20px);}
+}

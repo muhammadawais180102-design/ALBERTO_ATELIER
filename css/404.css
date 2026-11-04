@@ -1,0 +1,64 @@
+:root{color-scheme:light;--background:#fff;--text:#27272b;--muted:#777777;--button:#65b545;--button-text:#fff;--stone:#ededed;--grass:#54a944;--ground:#c2c2c2;--accent:#fbc85f}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;width:100%}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--background);color:var(--text);display:grid;place-items:center;min-height:100vh;padding:32px 18px}
+    body.alberto{color-scheme:dark;--background:#0a0b0e;--text:#e5cf9d;--muted:#aaa092;--button:#d6b777;--button-text:#11100e;--stone:#4b4a48;--grass:#987742;--ground:#6f6555;--accent:#f8d68b;background:radial-gradient(ellipse at 50% 40%,#241c13 0%,#0a0b0e 70%)}
+    main{width:min(820px,100%);text-align:center;position:relative}
+    .brand{margin:0 0 23px;color:var(--text);font:500 14px Georgia,serif;letter-spacing:.32em}
+    .code{font-weight:400;font-size:clamp(52px,8vw,76px);margin:0 0 -10px;letter-spacing:.04em;line-height:1}
+    .stage{position:relative;width:100%;margin:0 auto;max-width:750px;overflow:visible}
+    .art{width:100%;height:auto;overflow:visible;display:block}
+    .detail{margin-top:-2px}
+    h1{font:400 clamp(23px,3.5vw,31px) Georgia,'Times New Roman',serif;margin:10px 0 8px}
+    .description{font-size:clamp(12px,1.9vw,14px);line-height:1.65;color:var(--muted);margin:0 0 24px}
+    .btn{display:inline-block;text-decoration:none;background:var(--button);color:var(--button-text);font-size:13px;padding:12px 25px;border-radius:2px;border:0;cursor:pointer;box-shadow:0 3px 10px #00000011;transition:transform .2s,box-shadow .2s}
+    .btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 8px 25px #00000022}
+    .btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    .quiet{font-size:11px;margin:17px 0 0;min-height:16px;color:var(--muted)}
+    .stone{fill:var(--stone)}
+    .grass{fill:var(--grass)}
+    .ground{stroke:var(--ground)}
+    .character{transform-box:fill-box;transform-origin:55% 100%;animation:puppet 14s ease-in-out infinite}
+    .head{transform-origin:65px 44px;animation:headTilt 3.2s ease-in-out infinite}
+    .arm-up{transform-origin:84px 76px;animation:armScratch 2.7s ease-in-out infinite}
+    .arm-low{transform-origin:46px 78px;animation:armTap 1.9s ease-in-out infinite}
+    .cable{fill:none;stroke:#242424;stroke-width:3.8;stroke-linecap:round;stroke-linejoin:round;animation:cableTwitch 14s ease-in-out infinite}
+    body.alberto .cable{stroke:#c0ad81}
+    .shine{opacity:0;transform-box:fill-box;transform-origin:center;animation:glowShock 14s linear infinite}
+    .skeleton{opacity:0;animation:skeletonShock 14s linear infinite}
+    .shadows{transform-origin:center;animation:shadowCycle 14s ease-in-out infinite}
+    .spark{opacity:0;animation:glowShock 14s linear infinite}
+    .spark.two{animation-delay:.08s}
+    .spark.three{animation-delay:.15s}
+    @keyframes headTilt{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(7deg)}}
+    @keyframes armScratch{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(17deg)}}
+    @keyframes armTap{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(12deg)}}
+    @keyframes puppet{
+      0%,7%,18%,29%,44%,57%,62%{transform:translate(0,0) rotate(0)}
+      4%,21%,35%,50%{transform:translate(-2px,0) rotate(-4deg)}
+      12%,25%,39%,53%{transform:translate(3px,0) rotate(3deg)}
+      64%{transform:translate(0,-20px) rotate(-6deg)}
+      65%,67%,69%,71%{transform:translate(0,-42px) rotate(6deg)}
+      66%,68%,70%,72%{transform:translate(-2px,-46px) rotate(-7deg)}
+      74%{transform:translate(0,-59px) rotate(0)}
+      77%{transform:translate(0,-9px) rotate(2deg)}
+      79%,85%{transform:translate(0,24px) scale(1,.68)}
+      88%{transform:translate(0,12px) scale(1,.85)}
+      93%,100%{transform:translate(0,0) rotate(0)}
+    }
+    @keyframes cableTwitch{
+      0%,60%,79%,100%{transform:translateY(0)}
+      64%,68%,72%{transform:translateY(-6px)}
+      66%,70%,74%{transform:translateY(5px)}
+    }
+    @keyframes glowShock{
+      0%,62%,63.2%,64.6%,66.3%,68.2%,70.2%,72.3%,100%{opacity:0}
+      63%,64%,65%,66%,67%,68%,69%,70%,71%,72%{opacity:1}
+    }
+    @keyframes skeletonShock{
+      0%,63%,64.2%,65.3%,66.4%,67.5%,68.6%,69.7%,70.8%,72.5%,100%{opacity:0}
+      63.6%,64.8%,65.9%,67%,68.1%,69.2%,70.3%,71.4%{opacity:1}
+    }
+    @keyframes shadowCycle{0%,61%,79%,100%{opacity:.45;transform:scaleX(1)}64%,75%{opacity:.12;transform:scaleX(.62)}}
+    @media(max-width:550px){body{padding:18px 10px}main{margin-top:-14px}.brand{font-size:10px}.code{margin-bottom:-5px}.detail{margin-top:-12px}.description{padding:0 12px}.btn{font-size:12px;padding:12px 20px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

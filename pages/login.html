@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090b">
+<meta name="description" content="Alberto Atelier private access and account registration.">
+<title>Private Access | ALBERTO ATELIER</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/login.css">
+
+<link rel="stylesheet" href="../css/atelier-polish.css">
+<script src="../js/theme.js"></script>
+<link rel="stylesheet" href="../css/theme.css">
+<link rel="stylesheet" href="../css/account-ui.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="cinematic-bg" aria-hidden="true">
+  <div class="watch-image"></div>
+  <div class="watch-image second"></div>
+  <div class="ambient-light one"></div>
+  <div class="ambient-light two"></div>
+  <div class="mechanical-ring ring-one"></div>
+  <div class="mechanical-ring ring-two"></div>
+  <div class="mechanical-ring ring-three"></div>
+  <div class="light-sweep"></div>
+  <div class="particles" id="particles"></div>
+  <div class="vignette"></div>
+</div>
+
+<!-- BRAND -->
+<header class="brand-heading">
+  <a href="../index.html">ALBERTO ATELIER</a>
+  <span>THE ART OF TIME</span>
+</header>
+
+<button type="button" class="aa-theme-switch aa-theme-switch--auth" aria-label="Switch to light mode" aria-pressed="false" title="Switch to light mode">
+          <span class="aa-theme-switch__track" aria-hidden="true">
+            <span class="aa-theme-switch__label">DAY</span>
+            <span class="aa-theme-switch__thumb"></span>
+          </span>
+        </button>
+
+<!-- LOGIN / REGISTER -->
+<main class="auth-container" id="container">
+
+  <section class="form-box login">
+    <form id="loginForm" autocomplete="on">
+
+      <h1>Welcome Back</h1>
+      <p class="form-subtitle">SIGN IN TO YOUR ATELIER PROFILE (LOCAL DEMO)</p>
+
+      <div class="input-box">
+        <input type="email"
+               id="loginEmail"
+               placeholder="Email address"
+               autocomplete="email"
+               required>
+        <i class="bi bi-envelope"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password"
+               id="loginPassword"
+               placeholder="Password"
+               autocomplete="current-password"
+               required>
+        <button type="button"
+                class="password-toggle"
+                data-password="loginPassword"
+                aria-label="Show password">
+          <i class="bi bi-eye"></i>
+        </button>
+      </div>
+
+      <div class="forgot-link">
+        <a href="#" id="forgotLink">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="primary-btn">
+        Sign In
+      </button>
+
+      <p class="social-label">Explore social platforms</p>
+
+      <div class="social-icons">
+        <a href="https://accounts.google.com/"
+           target="_blank" rel="noopener noreferrer"
+           class="google" aria-label="Google website">
+          <i class="bi bi-google"></i>
+        </a>
+        <a href="https://www.facebook.com/"
+           target="_blank" rel="noopener noreferrer"
+           class="facebook" aria-label="Facebook website">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="https://github.com/login"
+           target="_blank" rel="noopener noreferrer"
+           class="github" aria-label="GitHub website">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/login"
+           target="_blank" rel="noopener noreferrer"
+           class="linkedin" aria-label="LinkedIn website">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+      <p class="message" id="loginMessage"
+         role="status" aria-live="polite"></p>
+
+    </form>
+  </section>
+
+  <section class="form-box register">
+    <form id="registerForm" autocomplete="on">
+
+      <h1>Join The Atelier</h1>
+      <p class="form-subtitle">CREATE A LOCAL DEMO PROFILE</p>
+
+      <div class="input-box">
+        <input type="text"
+               id="registerName"
+               placeholder="Full name"
+               autocomplete="name"
+               required>
+        <i class="bi bi-person"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="email"
+               id="registerEmail"
+               placeholder="Email address"
+               autocomplete="email"
+               required>
+        <i class="bi bi-envelope"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password"
+               id="registerPassword"
+               placeholder="Create password"
+               autocomplete="new-password"
+               minlength="8"
+               required>
+        <button type="button"
+                class="password-toggle"
+                data-password="registerPassword"
+                aria-label="Show password">
+          <i class="bi bi-eye"></i>
+        </button>
+      </div>
+
+      <button type="submit" class="primary-btn">
+        Create Account
+      </button>
+
+      <p class="social-label">Explore social platforms</p>
+
+      <div class="social-icons">
+        <a href="https://accounts.google.com/"
+           target="_blank" rel="noopener noreferrer"
+           class="google" aria-label="Google website">
+          <i class="bi bi-google"></i>
+        </a>
+        <a href="https://www.facebook.com/"
+           target="_blank" rel="noopener noreferrer"
+           class="facebook" aria-label="Facebook website">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="https://github.com/login"
+           target="_blank" rel="noopener noreferrer"
+           class="github" aria-label="GitHub website">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/login"
+           target="_blank" rel="noopener noreferrer"
+           class="linkedin" aria-label="LinkedIn website">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+
+      <p class="message" id="registerMessage"
+         role="status" aria-live="polite"></p>
+
+    </form>
+  </section>
+
+  <div class="toggle-box">
+
+    <div class="toggle-panel toggle-left">
+      <div class="monogram">A</div>
+      <h2>Welcome to Alberto</h2>
+      <p>
+        A world where timeless elegance
+        meets extraordinary craftsmanship.
+      </p>
+      <button type="button" class="outline-btn register-btn">
+        Register
+      </button>
+    </div>
+
+    <div class="toggle-panel toggle-right">
+      <div class="monogram">A</div>
+      <h2>Welcome Back</h2>
+      <p>
+        Your exclusive journey through
+        the art of time continues.
+      </p>
+      <button type="button" class="outline-btn login-btn">
+        Login
+      </button>
+    </div>
+
+  </div>
+
+
+  <section id="profilePanel" class="aa-profile-panel" hidden aria-live="polite">
+    <div class="aa-profile-monogram" aria-hidden="true">A</div>
+    <p class="aa-profile-eyebrow">YOUR ATELIER PROFILE · LOCAL DEMO</p>
+    <h2 id="profileGreeting">Welcome Back</h2>
+    <p class="aa-profile-copy" id="profileEmail"></p>
+    <div class="aa-profile-actions">
+      <a href="../index.html" class="aa-profile-link">Continue Exploring <i class="bi bi-arrow-right"></i></a>
+      <button type="button" id="signOutBtn" class="aa-profile-signout">Sign Out</button>
+    </div>
+    <p class="aa-profile-disclaimer">This account exists only in this browser. No online account or real authentication service is connected.</p>
+  </section>
+
+</main>
+
+<div class="edition-label">
+  ALBERTO ATELIER · TIMELESS BY DESIGN
+</div>
+
+<script src="../js/account-store.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/network-guard.js" defer></script>
+</body>
+</html>

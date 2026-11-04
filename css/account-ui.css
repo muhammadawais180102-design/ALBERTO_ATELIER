@@ -1,0 +1,105 @@
+/* ALBERTO ATELIER — Auth affordance and local-demo profile panel.
+   Scoped: no product, cart, offline or day/night mode behaviors changed. */
+.nav-actions a.aa-signin-cta {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  flex-shrink:0;
+  min-height:42px;
+  padding:0 16px;
+  border:1px solid rgba(226,189,124,.67);
+  border-radius:999px;
+  color:#f9e3b4;
+  background:linear-gradient(132deg,rgba(139,100,48,.32),rgba(17,17,17,.92));
+  box-shadow:inset 0 1px 0 rgba(255,234,189,.13),0 7px 20px rgba(0,0,0,.16);
+  font:600 10px/1 "Inter",sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.nav-actions a.aa-signin-cta i {font-size:17px;line-height:1;}
+.nav-actions a.aa-signin-cta .aa-signin-icon {width:18px;height:18px;flex:none;}
+.nav-actions a.aa-signin-cta:hover {
+  color:#fff0d0;
+  transform:translateY(-2px);
+  border-color:#f6dba6;
+  background:linear-gradient(135deg,rgba(184,138,71,.45),rgba(33,30,25,.95));
+  box-shadow:0 9px 23px rgba(0,0,0,.24),0 0 12px rgba(211,171,98,.15);
+}
+.nav-actions a.aa-signin-cta:focus-visible {outline:2px solid #e5c38a;outline-offset:3px;}
+html[data-aa-theme="light"] .nav-actions a.aa-signin-cta {
+  color:#5a3c1b;
+  background:linear-gradient(135deg,#fff9ec,#e9d3a7);
+  border-color:#b38c55;
+  box-shadow:0 5px 15px rgba(90,60,25,.12);
+}
+html[data-aa-theme="light"] .nav-actions a.aa-signin-cta:hover {
+  color:#3f2c17;
+  background:linear-gradient(135deg,#fffdf7,#dfbc81);
+}
+/* Make small navigation fit without changing brand sizes or menu mechanics. */
+@media(max-width:760px) {
+  .nav-actions a.aa-signin-cta {width:42px;min-width:42px;height:42px;padding:0;border-radius:50%;}
+  .nav-actions a.aa-signin-cta .aa-signin-cta__text {display:none;}
+  .nav-actions a.aa-signin-cta i {font-size:19px;}
+}
+@media(max-width:390px) {
+  .nav-actions a.aa-signin-cta {width:34px;min-width:34px;height:34px;}
+  .nav-actions a.aa-signin-cta i {font-size:16px;}
+  .nav-actions a.aa-signin-cta .aa-signin-icon {width:16px;height:16px;}
+}
+/* Original two-panel auth design remains underneath the logged-in profile. */
+.aa-profile-panel {
+  position:absolute;
+  inset:0;
+  z-index:20;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:26px;
+  text-align:center;
+  background:linear-gradient(155deg,rgba(19,19,19,.985),rgba(32,28,22,.985));
+  color:#f6e7c7;
+}
+.aa-profile-panel[hidden] {display:none!important;}
+.aa-profile-monogram {
+  display:grid;place-items:center;
+  width:80px;height:80px;border-radius:50%;
+  margin-bottom:20px;
+  font:500 58px/1 "Cormorant Garamond",Georgia,serif;
+  border:1px solid rgba(228,193,128,.6);
+  box-shadow:0 0 0 9px rgba(228,193,128,.06);
+  color:#e6c48a;
+}
+.aa-profile-eyebrow {font-size:10px;letter-spacing:.24em;color:#c7aa74;margin:0 0 10px;}
+.aa-profile-panel h2 {margin:0;font:600 clamp(32px,5vw,52px)/1.1 "Cormorant Garamond",Georgia,serif;}
+.aa-profile-copy {margin:13px 0 24px;color:#d7c39f;font-size:13px;overflow-wrap:anywhere;}
+.aa-profile-actions {display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.aa-profile-actions :is(a,button) {
+  min-height:44px;
+  padding:13px 19px;
+  border:1px solid rgba(224,186,116,.64);
+  border-radius:5px;
+  color:#f9e4b7;
+  background:transparent;
+  cursor:pointer;
+  font:600 11px/1.2 "Inter",sans-serif;
+  letter-spacing:.1em;
+  transition:background .2s,transform .2s;
+}
+.aa-profile-actions :is(a,button):hover {transform:translateY(-2px);background:rgba(216,183,120,.15);}
+.aa-profile-actions .aa-profile-link {background:linear-gradient(135deg,#cda763,#8e6b37);color:#17110a;}
+.aa-profile-disclaimer {max-width:420px;color:#a9a095;font-size:11px;line-height:1.6;margin:25px auto 0;}
+.aa-success-message {color:#96e0b7!important;}
+.form-box .primary-btn:disabled {opacity:.67;cursor:progress;}
+html[data-aa-theme="light"] .aa-profile-panel {
+  background:linear-gradient(145deg,#fffaf1,#f0e4d3);
+  color:#35281b;
+}
+html[data-aa-theme="light"] .aa-profile-monogram {color:#886028;border-color:#ba9156;}
+html[data-aa-theme="light"] .aa-profile-eyebrow,html[data-aa-theme="light"] .aa-profile-copy {color:#775830;}
+html[data-aa-theme="light"] .aa-profile-signout {color:#6e4b22;border-color:#b59468;}
+html[data-aa-theme="light"] .aa-profile-disclaimer {color:#665c50;}
